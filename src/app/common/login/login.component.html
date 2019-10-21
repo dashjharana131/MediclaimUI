@@ -1,0 +1,39 @@
+<!-- Header start-->
+<!--<app-header></app-header>-->
+<!-- Header end-->
+<!-- Login form start -->
+<!--<div class="login-form">
+    <form name="login_form" (ngSubmit)="f.login_form.valid && onLogin()">
+        <div class="avatar">
+            <img src="../../assets/images/male-female-avatar-png-4-1.png" alt="Avatar">
+        </div>
+        <h2 class="text-center">Login</h2>
+        <div class="alert alert-warning" *ngIf="isError">
+            <strong>Warning!</strong> Invalid Username / Password.
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="email" name="email" placeholder="E-Mail"
+                required="required" required pattern="^[A-Za-z ]+$"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">E-Mail is required and must be a valid e-mail</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password"
+                required="required" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <a href="#" class="pull-right">Forgot Password?</a>
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+        </div>
+    </form>
+</div>-->
+<!-- Login form end-->
+<!-- Footer start -->
+<!--<app-footer></app-footer>-->
+<!-- Footer end -->

@@ -1,0 +1,14 @@
+.sticky-footer {
+    flex-shrink: none;
+    
+  }
+  .bgfooter{
+      background-color: #FF6600;
+  }
+  .footer{
+      margin-top: 4rem !important;
+  }
+  .small, small {
+    font-size: 130%;
+    color: white;
+}
