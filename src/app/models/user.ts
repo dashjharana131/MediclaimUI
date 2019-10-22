@@ -1,8 +1,12 @@
-export interface IUsers {
+export interface User {
+    userId: string,
     policyId: string,
-    userName: string,
-    diagnosis: string,
-    admisionDate: string,
-    dischargeDate: string,
+    disease: String,
+    admisionDate: Date,
+    dischargeDate: Date,
     claimAmount: string,
+    hospitalName: String,
+    dateOfBirth: Date,
+    aadhaarNumber: string
+
 }

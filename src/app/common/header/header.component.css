@@ -56,6 +56,7 @@ body{
     padding-right: 16px;
     border-bottom: 1px solid #dfe3e8;
     border-radius: 0;
+    margin-bottom: 0px;
 }
 .nav-link img {
     border-radius: 50%;
@@ -82,6 +83,8 @@ body{
 }
 .navbar .nav li a {
     color: #091C5A;
+    font-size : 16px;
+    padding-left: 20px;
 }
 .search-box {
     position: relative;
@@ -267,6 +270,8 @@ body{
     }
 }
 
-.navBar .btnClaim {
-    padding-top:38px;
+ .logoFont{
+    margin-top: -1.5rem;
+    height: 42px;
 }
+

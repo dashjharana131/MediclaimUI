@@ -1,2 +1,118 @@
+<!-- Header start -->
 <app-header></app-header>
+<!-- Header end -->
+<!-- Claim form start -->
+<div class="card m-4">
+    <h5 class="card-header header"> Fill out the claim form </h5>
+    <div class="card-body">
+        <form [formGroup]="claimForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group col-5">
+                    <label for="policyId">Policy Id*</label>
+                    <input type="number" formControlName="policyId" class="form-control formLabel"
+                        placeholder="Policy Id" [ngClass]="{ 'is-invalid': submitted && f.policyId.errors }" />
+                    <div *ngIf="submitted && f.policyId.errors" class="invalid-feedback">
+                        <div *ngIf="f.policyId.errors.required">Policy Id is mandatory</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label for="userId">User Id*</label>
+                    <input type="number" formControlName="userId" class="form-control formLabel" placeholder="User Id"
+                        [ngClass]="{ 'is-invalid': submitted && f.userId.errors }" />
+                    <div *ngIf="submitted && f.userId.errors" class="invalid-feedback">
+                        <div *ngIf="f.userId.errors.required">User Id is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="dateOfBirth">Date of birth*</label>
+                <input type="date" formControlName="dateOfBirth" class="form-control" dateFormat="dd/mm/yy"
+                    [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }" />
+                <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
+                    <div *ngIf="f.dateOfBirth.errors.required">Date of birth is required</div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="aadhaarNumber">Aadhaar Number*</label>
+                <input type="number" formControlName="aadhaarNumber" class="form-control" placeholder="Aadhaar"
+                    [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }" />
+                <div *ngIf="submitted && f.aadhaarNumber.errors" class="invalid-feedback">
+                    <div *ngIf="f.aadhaarNumber.errors.required">Aadhaar Number is required</div>
+                </div>
+            </div>
+            <!-- Disease dropdown start -->
+            <div class="form-group col">
+                <label class="center-block">Disease Name*
+                    <select class="form-control" formControlName="disease">
+                        <option *ngFor="let disease of diseases" [value]="diseaseId">
+                            {{disease.diseaseName}}
+                        </option>
+                    </select>
+                </label>
+                <div *ngIf="submitted && f.disease.errors" class="invalid-feedback">
+                    <div *ngIf="f.disease.errors.required">Disease is required</div>
+                </div>
+            </div>
+            <!-- Disease dropdown end -->
+
+            <!-- Hospital dropdown start -->
+            <div class="form-group ">
+                <label class="center-block">Hospital Name*
+                    <select class="form-control" formControlName="hospitalName">
+                        <option *ngFor="let hospital of hospitals" [value]="hospital">
+                            {{hospital.hospitalname}}
+                        </option>
+                    </select>
+                </label>
+                <div *ngIf="submitted && f.hospitalName.errors" class="invalid-feedback">
+                    <div *ngIf="f.hospitalName.errors.required">Hospital Name is required</div>
+                </div>
+            </div>
+            <!-- Hospital dropdown end -->
+
+            <div class="form-row">
+                <div class="form-group col-5">
+                    <label for="admisionDate">Admision Date*</label>
+                    <input type="date" formControlName="admisionDate" class="form-control formLabel"
+                        dateFormat="dd/mm/yy" [ngClass]="{ 'is-invalid': submitted && f.admisionDate.errors }" />
+                    <div *ngIf="submitted && f.admisionDate.errors" class="invalid-feedback">
+                        <div *ngIf="f.admisionDate.errors.required">Admission Date is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label for="dischargeDate">Discharge Date*</label>
+                    <input type="date" formControlName="dischargeDate" class="form-control" dateFormat="dd/mm/yy"
+                        [ngClass]="{ 'is-invalid': submitted && f.dischargeDate.errors }" />
+                    <div *ngIf="submitted && f.dischargeDate.errors" class="invalid-feedback">
+                        <div *ngIf="f.dischargeDate.errors.required">Discharge date is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="claimAmount">Claim Amount*</label>
+                <input type="number" formControlName="claimAmount" class="form-control" placeholder="Claim Amount"
+                    [ngClass]="{ 'is-invalid': submitted && f.claimAmount.errors }" />
+                <div *ngIf="submitted && f.claimAmount.errors" class="invalid-feedback">
+                    <div *ngIf="f.claimAmount.errors.required">Claim amount is required</div>
+                </div>
+            </div>
+            <!--<div class="form-group form-check">
+                <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input"
+                    [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+            </div>-->
+            <div class="form-group">
+                <button class="btn btn-primary">
+                    <a routerLink="/claim/status">
+                        Submit
+                    </a>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Claim form end -->
+<!-- Footer start -->
 <app-footer></app-footer>
+<!-- Footer end -->
