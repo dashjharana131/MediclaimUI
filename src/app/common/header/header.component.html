@@ -1,4 +1,4 @@
-<!-- header start -->
+<!-- Header start -->
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
     <div class="navbar-header d-flex col logoFont">
         <a class="navbar-brand " href="#"><img src="./assets/images/mediclaim-logo.png" alt="mediclaim"
@@ -10,6 +10,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
+
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
         <ul class="nav navbar-nav">
@@ -29,13 +30,12 @@
                     <li><a class="dropdown-item" href="/claim/status">Claim status</a></li>
                 </ul>
             </li>
-            <!--<li class="nav-item active"><a>Fuel Cards</a></li>-->
             <li class="nav-item"><a>Renew Health Insurance</a></li>
-            <li class="nav-item"><a>About Us</a></li>
+            <li class="nav-item"><a href="/claim/login">Login</a></li>
         </ul>
     </div>
-    <!--<div *ngIf="currURL != '/login' && currURL != '/register'" class="col-sm-8 ">
-            <button type="button" (click)="userLogout()" class="btn btn-link tabColor tab">Logout</button>
-        </div>-->
+    <div *ngIf="currURL != '/' && currURL != '/claim/login'" class="">
+        <button type="button" (click)="userLogout()" class="btn btn-link tabColor tab">Logout</button>
+    </div>
 </nav>
-<!-- header end-->
+<!-- Header end-->

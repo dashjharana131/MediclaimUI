@@ -1,3 +1,4 @@
+/* Login css start */
 body {
     color: #fff;
     /*background-image: url("https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2016/hereswhatmat.jpg");*/
@@ -102,3 +103,5 @@ body {
 .login-form form a:hover {
     text-decoration: underline;
 }
+
+/* Login css end */

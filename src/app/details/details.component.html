@@ -44,7 +44,7 @@
             <div class="form-group col">
                 <label class="center-block">Disease Name*
                     <select class="form-control" formControlName="disease">
-                        <option *ngFor="let disease of diseases" [value]="diseaseId">
+                        <option *ngFor="let disease of diseases" [value]="disease.diseaseId">
                             {{disease.diseaseName}}
                         </option>
                     </select>
@@ -59,7 +59,7 @@
             <div class="form-group ">
                 <label class="center-block">Hospital Name*
                     <select class="form-control" formControlName="hospitalName">
-                        <option *ngFor="let hospital of hospitals" [value]="hospital">
+                        <option *ngFor="let hospital of hospitals" [value]="hospital.hospitalId">
                             {{hospital.hospitalname}}
                         </option>
                     </select>
@@ -96,18 +96,13 @@
                     <div *ngIf="f.claimAmount.errors.required">Claim amount is required</div>
                 </div>
             </div>
-            <!--<div class="form-group form-check">
-                <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input"
-                    [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
-                <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
-                <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
-            </div>-->
             <div class="form-group">
-                <button class="btn btn-primary">
-                    <a routerLink="/claim/status">
-                        Submit
-                    </a>
-                </button>
+                <!-- <p-messages [(value)]="msgs"></p-messages> -->
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1"><a routerlink="/claim/status">Submit</a></button>
+                    <!-- <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button> -->
+                </div>
+                <!-- <p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast> -->
             </div>
         </form>
     </div>

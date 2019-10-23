@@ -1,3 +1,4 @@
+/* Footer css start */
 .sticky-footer {
     flex-shrink: none;
     
@@ -12,3 +13,4 @@
     font-size: 130%;
     color: white;
 }
+/* Footer css end */

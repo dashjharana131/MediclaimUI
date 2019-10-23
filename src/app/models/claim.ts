@@ -1,3 +1,4 @@
+/* Claim model */
 export interface Claim {
     claimId: String,
     userName: String,

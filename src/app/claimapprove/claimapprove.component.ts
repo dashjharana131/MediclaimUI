@@ -1,10 +1,14 @@
+/* Import Angular Core Components */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+
+/* Import Common Service */
 import { DataserviceService } from '../services/dataservice.service';
+
+/* Import claim model from models folder */
 import { Claim } from '../models/claim';
-
-
 
 @Component({
   selector: 'app-claimapprove',
@@ -12,13 +16,21 @@ import { Claim } from '../models/claim';
   styleUrls: ['./claimapprove.component.css']
 })
 export class ClaimapproveComponent implements OnInit {
+
   claim: Claim[];
   reqCols: any[];
+  claimId: number;
+  statusClaimId: number;
 
-  constructor(private router: Router, private http: HttpClient, private dataservice: DataserviceService) { }
+  claimIdForm = new FormGroup({
+    claimId: new FormControl(''),
+  });
+
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private dataservice: DataserviceService) { }
 
   ngOnInit() {
-    //this.dataservice.getClaim(this.claim).then(claim => this.claim = claim);
+
+    /* Required columns for claim tracking start */
     this.reqCols = [
       { field: 'claimId', header: 'ClaimId Id' },
       { field: 'userName', header: 'User Name' },
@@ -32,6 +44,29 @@ export class ClaimapproveComponent implements OnInit {
       { field: 'approverId', header: 'Approver Id' },
       { field: 'status', header: 'Status' },
     ];
+    /* Required columns for claim tracking end */
+
+    this.getClaim;
   }
+
+  /* Claim Id generating method start*/
+  getClaim(claimId) {
+    this.dataservice.getClaim(claimId).subscribe(data => {
+      this.claim = data;
+
+    });
+  }
+  /* Claim Id generating method end*/
+
+  /* Claim status button method start */
+  onClimStatus() {
+    console.log(this.statusClaimId);
+    debugger;
+    let claimId = this.claimIdForm.value;
+    this.dataservice.getClaim(this.statusClaimId).subscribe(res => {
+      console.log(res);
+    })
+  }
+  /* Claim status button method end */
 
 }

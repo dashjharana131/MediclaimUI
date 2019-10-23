@@ -1,7 +1,10 @@
+/* Import angular core module */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+
+/* Import service */
 import { DataserviceService } from '../services/dataservice.service'
 import { MessageService } from 'primeng/components/common/messageservice';
 import { User } from '../models/user'
@@ -24,6 +27,7 @@ export class DetailsComponent implements OnInit {
   loading = false;
   submitted = false;
   data: any;
+
   userId: string;
   policyId: string;
   disease: String;
@@ -36,12 +40,8 @@ export class DetailsComponent implements OnInit {
   hospitals: any = [];
   diseases: any = [];
 
-  showSuccess() {
-    this.messageService.add({ severity: 'success', summary: 'Success Message', detail: 'Claim submitted successfully' });
-  }
-
   ngOnInit() {
-    /* Claim form validations starts */
+    /* Claim form validations start */
     this.claimForm = this.fb.group({
       policyId: ['', Validators.required],
       userId: ['', Validators.required],
@@ -55,29 +55,29 @@ export class DetailsComponent implements OnInit {
     });
     this.getHospitalList();
     this.getDiseaseList();
-    /* Register form validations ends */
+    /* Claim form validations end */
   }
 
-  /* Get All Hospital List start */
+  /* Get all hospital list start */
   getHospitalList() {
     this.commonService.getHospitalList().subscribe(data => {
       this.hospitals = data;
 
     });
   }
-  /* Get All Hospital List end */
+  /* Get all hospital list end */
 
-  /* Get All Disease List start */
+  /* Get all disease list start */
   getDiseaseList() {
     this.commonService.getDiseaseList().subscribe(data => {
       this.diseases = data;
       console.log(this.diseases);
-      debugger;
+
     });
   }
-  /* Get All Disease List end */
+  /* Get all disease list end */
 
-  /* convenience getter for easy access to form fields */
+  /* Convenience getter for easy access to form fields */
   get f() { return this.claimForm.controls; }
   conformationMsg: string = "Claim submitted Successfully";
   isAdded: boolean = false;
@@ -85,14 +85,10 @@ export class DetailsComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    /* reset alerts on submit
-    this.alertService.clear();*/
-
     /* stop here if form is invalid */
     if (this.claimForm.invalid) {
       return;
     }
-
 
     const reqObj = {
       "policyId": this.claimForm.value.policyId,
@@ -104,6 +100,7 @@ export class DetailsComponent implements OnInit {
       "claimAmount": this.claimForm.value.claimAmount,
       "aadhaarNumber": this.claimForm.value.aadhaarNumber
     };
+
     /* Api call */
     this.http.post('http://10.117.189.207:9393/medi-claim/claims/users', reqObj).subscribe((response: any) => {
       if (response) {

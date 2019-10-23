@@ -1,29 +1,38 @@
+<!-- Header start -->
 <app-header></app-header>
-<p-tabPanel header="My Claims" leftIcon="pi pi-user" rightIcon="pi pi-star">
-    <p-table [columns]="reqCols" [value]="requests" [paginator]="true" [rows]="10">
-        <ng-template pTemplate="header" let-columns>
-            <tr>
-                <th *ngFor="let col of columns">
-                    {{col.header}}
-                </th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="columns">
-            <tr>
-                <td class="tableHeader" *ngFor="let col of columns">
-                    {{rowData[col.field]}}
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
-</p-tabPanel>
-<p-dialog header="Are you sure want to reject?" [(visible)]="display" [modal]="true"
-    [style]="{width: '350px', minWidth: '200px'}" [minY]="70" [maximizable]="true" [baseZIndex]="10000">
-    <b>Comments </b> <input type="text" pInputText [(ngModel)]="comments" size="41" />
-    <p-footer>
-        <button type="button" pButton icon="pi pi-check" (click)="reject()" label="Reject"></button>
-        <button type="button" pButton icon="pi pi-times" (click)="display=false" label="Cancel"
-            class="ui-button-secondary"></button>
-    </p-footer>
-</p-dialog>
+<!-- Header end -->
+
+<!-- Claim form start -->
+<form>
+    <div class="form-group col-5">
+        <label for="claimId">Claim Id*</label>
+        <input type="number" [(ngModel)]="statusClaimId" name="climId" class="form-control formLabel"
+            placeholder="Claim Id" [ngClass]="{ 'is-invalid': submitted && f.claimId.errors }" />
+    </div>
+    <div class=" form-group col-5">
+        <button type="button" pButton icon="pi pi-check" label="Status" (click)="onClimStatus()"></button>
+    </div>
+    <p-tabPanel header="My Claims" leftIcon="pi pi-user" rightIcon="pi pi-star">
+        <p-table [columns]="reqCols" [value]="requests" [rows]="10">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td class="tableHeader" *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p-tabPanel>
+</form>
+<!-- Claim form end -->
+
+<!-- Footer start -->
 <app-footer></app-footer>
+<!-- Footer end -->
